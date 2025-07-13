@@ -26,17 +26,32 @@ function clearGameState() {
 
 // Predefined list of properties
 const PROPERTY_LIST = [
-  { name: "Park Place", value: 300 },
-  { name: "Boardwalk", value: 400 },
-  { name: "Baltic Avenue", value: 150 },
-  { name: "Mediterranean Avenue", value: 100 },
-  { name: "St. Charles Place", value: 250 },
-  { name: "New York Avenue", value: 200 },
-  { name: "Kentucky Avenue", value: 220 },
-  { name: "Indiana Avenue", value: 220 },
-  { name: "Illinois Avenue", value: 240 },
-  { name: "Atlantic Avenue", value: 260 },
-  { name: "Ventnor Avenue", value: 260 }
+  { name: "Delhi", value: 3000 },
+  { name: "Kolkata", value: 2200 },
+  { name: "Ahmedabad", value: 1750 },
+  { name: "Pune", value: 1250 },
+  { name: "Mumbai", value: 5500 },
+  { name: "Shimla", value: 1750 },
+  { name: "Chandigarh", value: 2000 },
+  { name: "Cochin", value: 1500 },
+  { name: "Ladakh", value: 4000 },
+  { name: "Darjeeling", value: 1250 },
+  { name: "Jaipur", value: 1500 },
+  { name: "Patna", value: 1000 },
+  { name: "Agra", value: 4000 },
+  { name: "Indore", value: 750 },
+  { name: "Kanpur", value: 2000 },
+  { name: "Hyderabad", value:1750 },
+  { name: "Goa", value: 2500 },
+  { name: "Bangalore", value: 3000 },
+  { name: "Chennai", value: 4000 },
+  { name: "Amritsar", value: 2250 },
+  { name: "Electricity", value: 1750 },
+  { name: "Internet", value: 4000 },
+  { name: "Airways", value: 5500 },
+  { name: "Railways", value: 5500 },
+  { name: "Waterways", value: 1500 },
+  { name: "Roadways", value: 5500 }
 ];
 
 function init() {
