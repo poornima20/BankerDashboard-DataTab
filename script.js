@@ -145,20 +145,88 @@ function assignProperty(playerId) {
   const player = players.find(p => p.id === playerId);
   if (!player) return;
 
-  // Show available properties
-  const available = PROPERTY_LIST.filter(prop => 
+  const available = PROPERTY_LIST.filter(prop =>
     !player.properties.some(p => p.name === prop.name)
   );
 
-  let propNames = available.map((p, i) => `${i + 1}. ${p.name} (Rs.${p.value})`).join("\n");
-  let choice = parseInt(prompt(`Select a property to add:\n${propNames}`)) - 1;
-
-  if (available[choice]) {
-    const selected = { ...available[choice], mortgaged: false };
-    player.properties.push(selected);
-    logTransaction(`🏠 ${player.name} bought ${selected.name}`);
-    updateUI();
+  if (available.length === 0) {
+    alert("No properties available to assign.");
+    return;
   }
+
+  // Create modal
+  const modal = document.createElement("div");
+  modal.className = "modal";
+  modal.style.cssText = `
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  `;
+
+  const content = document.createElement("div");
+  content.style.cssText = `
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+  `;
+
+  const closeBtn = document.createElement("span");
+  closeBtn.textContent = "✖";
+  closeBtn.style.cssText = `
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    color: #888;
+  `;
+  closeBtn.onclick = () => modal.remove();
+
+  const title = document.createElement("h3");
+  title.textContent = "Assign Property";
+
+  const list = document.createElement("div");
+
+  available.forEach((prop, i) => {
+    const btn = document.createElement("button");
+    btn.textContent = `${i + 1}. ${prop.name} (Rs.${prop.value})`;
+    btn.style.cssText = `
+      display: block;
+      width: 100%;
+      margin: 5px 0;
+      padding: 10px;
+      text-align: left;
+      border: none;
+      border-radius: 6px;
+      background-color: #f0f0f0;
+      cursor: pointer;
+    `;
+    btn.onclick = () => {
+      const selected = { ...prop, mortgaged: false };
+      player.properties.push(selected);
+      logTransaction(`🏠 ${player.name} bought ${selected.name}`);
+      updateUI();
+      modal.remove();
+    };
+
+    list.appendChild(btn);
+  });
+
+  content.appendChild(closeBtn);
+  content.appendChild(title);
+  content.appendChild(list);
+  modal.appendChild(content);
+  document.body.appendChild(modal);
 }
 
 function mortgageProperty(playerId, propertyName) {
