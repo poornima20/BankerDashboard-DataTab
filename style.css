@@ -1,0 +1,249 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #ffffff, #e5ebf5);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #000000;
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-add {
+  background-color: #a8e6cf;
+  color: #1b5e20;
+}
+
+.btn-subtract {
+  background-color: #ffdde0;
+  color: #b71c1c;
+}
+
+.btn-primary {
+  background-color: #d1c4e9;
+  color: #311b92;
+  width: 250px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  margin-top:40px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1rem;
+  color: #2c3e50;
+  position: relative;
+  z-index: 1;
+}
+
+.balance {
+  font-size: 2.2rem;
+  color: #000000;
+  margin: 0 0;
+  text-align: center;
+  padding:20px 0;
+
+}
+
+.btn-input{
+   margin-top: 10px;
+   display: flex; 
+   gap: 10px;"
+}
+
+.properties {
+  margin-top: 30px;
+  font-size: 0.9em;
+}
+
+.property-tag {
+  display: inline-block;
+  background: #eee;
+  color: #333;
+  padding: 4px 10px;
+  border-radius: 16px;
+  margin: 4px 4px 4px 0;
+  font-size: 0.9rem;
+}
+
+.mortgaged {
+  background: #ffebee;
+  color: red;
+  font-size: 0.85rem;
+}
+
+.redeem{
+  font-size: 0.69rem;
+  color: green;
+  border-color: #1b5e20 ;
+  border: 1px solid;
+  margin-left:10px;
+}
+.redeemr{
+  font-size: 0.5rem;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #aaa;
+}
+
+input[type="number"] {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100px;
+  margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+}
+
+.btn-add, .btn-subtract {
+  font-size: 12px;
+  font-weight: bold;
+}
+.btn-add:hover {
+  background-color: #ccffdd;
+}
+
+.btn-subtract:hover {
+  background-color: #ffeded;
+}
+
+.btn-primary:hover {
+  background-color: #e1bee7;
+}
+
+.btn-danger {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.btn-danger:hover {
+  background-color: #000000;
+  color: white;
+}
+
+.btn-playeradd:hover{
+    background-color: white;
+}
+.btn-history:hover{
+    background-color: white;
+}
+
+
+.card .btn-edit,
+.card .btn-remove {
+  position: absolute;
+  top: 10px; /* Adjust based on your layout */
+  right: 20px; /* Distance from right edge */
+  transform: translateY(-50%);
+  font-size: 1rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+.card .btn-remove {
+  top: 21px;
+  right: 70px; /* Place edit/remove side by side */
+}
+
+.btn-edit {
+  background-color: #ffffff;
+  color: #2e7d32;  
+}
+
+.btn-edit:hover {
+  background-color: #dcedc8;
+}
+
+.btn-remove {
+  background-color: #ffffff;
+  color: #b71c1c;
+}
+
+.btn-remove:hover {
+  background-color: #ffcdd2;
+}
